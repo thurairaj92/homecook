@@ -1,0 +1,48 @@
+db.getCollection('user_food').insert({
+      name: 'Tim Cook', 
+      currency : 'CAD',
+      address : {
+            address : '',
+            address_optional : '',
+            address_number : '',
+            city : '',
+            state : '',
+            country : '',
+            postal_code : '',
+            geo_location : { "type": "Point", "coordinates": [-79.378798, 43.671555] }
+      },
+      coverage : {
+         distance : ''
+      },
+      products: [
+         {
+            category: 'Indian',
+            reviews : [
+               {
+                  name : 'Thurairaj ',
+                  id : '',
+                  comment : 'Bad Apple',
+                  star : 1
+               },
+               {
+                  name : 'Raj ',
+                  id : '',
+                  comment : 'Good Apple',
+                  star : 2
+               }
+            ]
+            item: '',
+            food: [
+               {
+                   title : 'chicken masala',
+                   price : ' 7.00',
+               },
+               {
+                   title : 'chicken curry',
+                   price : ' 7.00',
+               }
+            ]
+         }
+      ],
+   })
+   

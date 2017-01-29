@@ -1,0 +1,27 @@
+{
+  "name": "homecook",
+  "version": "1.0.0",
+  "description": "Startup project",
+  "main": "homecook.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thurairaj92/homecook.git"
+  },
+  "author": "thurairaj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thurairaj92/homecook/issues"
+  },
+  "homepage": "https://github.com/thurairaj92/homecook#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "moment": "^2.14.1",
+    "mongodb": "^2.1.18",
+    "request": "^2.73.0",
+    "underscore": "^1.8.3"
+  }
+}
