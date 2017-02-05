@@ -1,0 +1,85 @@
+<html>
+<head>
+	<title>Suren Project</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+</head>
+
+	<body>
+		<button class="btn btn-primary" onclick="getData()">Refresh</button>
+		<div class="container">
+			<!-- <div>
+				<h3>Door Close Number : 1</h3>
+				<table class="table table-hover">
+					<tbody>
+						<tr><th>Index</th><th>IP Address</th></tr>
+						<tr><td>1</td><td>123.456.789:900</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h5>2</h5>
+				<table class="table">
+					<tbody>
+						<tr><td>1</td><td>143.456.789:900</td></tr>
+					</tbody>
+				</table>
+			</div> -->
+		</div>
+	<script type="text/javascript">
+		var trS = "<tr>";
+		var trE = "</tr>";
+
+		var tdS = "<td>";
+		var tdE = "</td>";
+
+		result = [{"ip" : "1234:5667", "index": 1}, {"ip" : "6546:5667", "index" : 1}, {"ip" : "2345:5667" , "index" : 2}]
+
+		function dataToHTML(result){
+			result = result.map(function(data, index){
+				return trS + tdS + (index+1) + tdE + tdS + data.ip + tdE + trE; 
+			})
+
+			return result.reduce(function(soFar, cur){
+				return soFar + cur;
+			}, "<table class='table table-hover'><tr><th>Index</th><th>IP Address</th></tr>") + "</table>";
+
+		}
+
+		function dataToObject(result){
+			var dataObj = {};
+			finalHTML = "";
+			result.map(function(data){
+				if(dataObj[data.close]){
+					dataObj[data.close].push(data);
+				}else{
+					dataObj[data.close] = [data];
+				}
+			})
+
+			var keys = Object.keys(dataObj);
+
+			for(var i = 0; i < keys.length ; i++){
+				finalHTML += "<div>" + "<h3>Door Close Number :" + keys[i] + "</h3>" + dataToHTML(dataObj[keys[i]]) + "</div>";
+			}
+
+			return finalHTML;
+		}
+
+
+		function getData(){
+			$.ajax({
+				url : "/getIP"
+			}).done(function(data){
+				console.log();
+				$(".container").html(dataToObject(data));
+			})
+		}
+
+		$(function(){
+			getData();
+		})
+	</script>
+</body>
+</html>
