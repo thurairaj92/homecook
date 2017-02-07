@@ -4,6 +4,22 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+	<style type="text/css">
+		.table{
+			margin-bottom: 15px;
+			border: 1px solid #ccc;
+		}
+
+		h3{
+			font-weight: bold;
+    		color: darkblue;
+		}
+
+		.last{
+			font-weight: bold;
+			background-color: #e9e9ea;
+		}
+	</style>
 </head>
 
 	<body>
@@ -45,7 +61,7 @@
 
 			return result.reduce(function(soFar, cur){
 				return soFar + cur;
-			}, "<table class='table table-hover'><tr><th>Index</th><th>MAC Address</th></tr>") + "<tr><td>Total</td><td>"+ result.length +"</td></tr></table>";
+			}, "<table class='table table-hover'><tr><th>Index</th><th>MAC Address</th></tr>") + "<tr class='last'><td>Total</td><td>"+ result.length +"</td></tr></table>";
 
 		}
 
@@ -63,7 +79,7 @@
 			var keys = Object.keys(dataObj);
 
 			for(var i = 0; i < keys.length ; i++){
-				finalHTML += "<div>" + "<h3>Door Close Number :" + places[i] + "</h3>" + dataToHTML(dataObj[keys[i]]) + "</div>";
+				finalHTML += "<div>" + "<h3>" + places[i] + "</h3>" + dataToHTML(dataObj[keys[i]]) + "</div>";
 			}
 
 			return finalHTML;
