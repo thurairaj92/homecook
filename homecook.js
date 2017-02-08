@@ -23,12 +23,12 @@ let HOME_COOK_DB = {
 }
 
 let DB_URI_HOME_COOK_URI = "mongodb://" + HOME_COOK_DB.USERNAME + ":" + HOME_COOK_DB.PASSWORD + "@" + HOME_COOK_DB.HOST + ":" + HOME_COOK_DB.PORT + "/" + HOME_COOK_DB.DATABASE;
-/*mongoose.connect(DB_URI_HOME_COOK_URI);*/
+mongoose.connect(DB_URI_HOME_COOK_URI);
 
 
 //Model
 /*var foodPlaceSchema = new Schema({
-	_id : ObjectId
+	_id : ObjectId,
 	name : String,
 	currency : String,
 	registered_on : Number, 
@@ -110,6 +110,7 @@ let DB_URI_HOME_COOK_URI = "mongodb://" + HOME_COOK_DB.USERNAME + ":" + HOME_COO
                     "schedule" : {}
                 }
             ]
+        }]
 });*/
 
 
@@ -207,9 +208,10 @@ app.get('/getIP', (req, res) => {
 
 	var today = moment();
 	var todayInt = today.format('YYYYMMDD');
-	let query = {
+	/*let query = {
 		"date" : todayInt
-	}
+	}*/
+	var query = {}
 	connectToDatabase(DB_URI_HOME_COOK_URI)
 	.then(db => {return findQuery(db, "ipaddresses", query, {})})
 	.then(result => { console.log(result); res.json(result)}).catch(err => {console.log(err); res.json(result)})
