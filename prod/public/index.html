@@ -1,0 +1,288 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+	<link href="https://fonts.googleapis.com/css?family=Catamaran|Roboto|Architects+Daughter" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-sanitize.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<script type="text/javascript" src="js/homecook-main.js"></script>
+	<style type="text/css">
+		body{
+			margin:0px;
+			padding:0px;
+			font-family: 'Catamaran', sans-serif;
+		}
+
+		.navbar{
+			margin-bottom: 0px;
+		}
+
+
+		/*.food{
+			background: url('img/food-background.png');
+			height:92%;
+		}*/
+
+		.info{
+			text-align: center;
+			background:grey;
+		}
+
+		/*.food form{
+
+			position: absolute;
+			top:75%;
+		}
+
+		.food .form-control{
+			height:2.1em;
+			font-size: 1.5em;
+			color:#000;
+			height:70px;
+		}
+
+
+		.food .postal-code-container{
+			box-shadow: rgba(82, 80, 80, 0.71) 0px 0px 70px;
+			border: none;
+		}
+
+		.food .postal-code-container *{
+			border: none;	
+		}*/
+
+		.food .input-group-addon{
+			padding: 6px 5% !important;
+			font-size: 1.2em;
+			background-color: #c0e252;
+			color:#403f3f;
+		}
+
+		.info .img-container{
+			width: 100%;
+			position: absolute;
+			left:-15px;
+			top:25%;
+			text-align: center;
+		}
+
+		.info .img-circle{
+			display: inline-block;
+			width: 50%;
+		    padding: 13%;
+		    border-radius: 50%;
+		    background-color: #c0e252;
+		}
+
+		.info .btn-container{
+			width: 100%;
+			position: absolute;
+			text-align: center;
+			top:75%;
+			left:-15px;
+		}
+
+		.info .btn{
+			background-color: #c0e252;
+			display:inline-block;
+			height: 70px;
+    		padding: 10px 50px;
+		}
+
+		.img-responsive{
+			/*height:75%;
+			width:auto;*/
+		}
+
+		.content{
+			background-color: #fff;
+			min-height:800px;
+		}
+
+		.content{
+			text-align: center;
+		    font-size: 3em;
+		    text-transform: uppercase;
+		}
+
+		.navbar{
+			/*background-color: #fff;*/
+		    border: none;
+		    border-radius: 0px;
+		    font-family: 'Roboto', sans-serif;
+		}
+
+		.navbar-brand,
+		.navbar-nav li a {
+		    line-height: 70px;
+		    height: 70px;
+		    padding-top: 0;
+		}
+
+		.navbar-brand{
+
+		}
+
+		.chef, .food{
+			padding: 1em 1em 2em 1em;
+		}
+
+		.chef h3, .food h3{
+			text-align: left;
+			padding-bottom: 10px;
+			font-size: 2.5em;
+		}
+
+		.info li{
+			border-radius: 0px !important;
+			padding:5px;
+		}
+
+		.info .first-name{
+			width:50%;
+			display: inline-block;
+		}
+
+		.info .last-name{
+			width: 50%;
+			border-left:1px #c0c0c0 solid !important;
+			border-radius: 0px !important;
+			display: inline-block;
+			padding-left: 15px;
+		}
+
+		.info .form-control{
+			border:none;
+			box-shadow: none;
+		}
+
+		.info-container{
+			background: url('img/home3.jpg');
+			height:90%;
+		}
+
+		.food button, .chef button{
+			background-color: #c0e252;
+			width:100%;
+		}
+
+		.info-card{
+			background-color: #fff;
+			margin-top: 3em;
+
+		}
+
+		hr{
+			margin:0px;
+		}
+
+		.content-container{
+			min-height: 500px;
+			padding:0px;
+		}
+
+		.content-container .panel{
+			padding:0px;
+			margin-bottom: 3em;
+		}
+
+		.content-container .content-card-info-container{
+			padding:10px 15px;
+		}
+
+		.content-container .content-card-info-container h4{
+			font-size: 2em;
+			font-weight: bold;
+			font-family: 'Architects Daughter', cursive;
+		}
+
+		.content-container .content-card-image-container{
+			height: 250px;
+			overflow: hidden;
+		}
+
+		.content-container .food-content-container{
+			padding: 3em 4em;
+		    padding-top: 3em;
+		    background-color: #ddd;
+		}
+
+		.content-container .food-content-title{
+			font-family: 'Architects Daughter', cursive;
+			margin-top:0 em;
+			margin-bottom: 1em;
+		}
+
+	</style>
+</head>
+<body ng-app="homecook" ng-controller="mainController">
+	<div class="fluid-container">
+		<custom-header></custom-header>
+		<!-- <div class="food col-sm-8">
+			<form class="col-sm-10 col-sm-offset-1">
+				<div class="input-group postal-code-container">
+					<input type="text" class="form-control" placeholder="Please Enter Postal Code..." aria-describedby="basic-addon2">
+					<span class="input-group-addon" id="basic-addon2">Search</span>
+				</div>
+			</form>
+		</div> -->
+		<div class="info-container col-sm-12">
+			<div class="info-card col-sm-offset-8 col-sm-4">
+				<div class="food">
+					<h3> <i class="fa fa-cutlery" aria-hidden="true"></i> Discover food at</h3>
+					<ul class="list-group info">
+					  <li class="list-group-item"><input type="text" class="form-control" placeholder="Postal Code"></li>
+					</ul>
+					<button class="btn btn-lg">Search for food</button>
+				</div>
+				<hr>
+				<div class="chef">
+					<h3> <i class="fa fa-check-circle" aria-hidden="true"></i> Sign up to be chef</h3>
+					<ul class="list-group info">
+					  <li class="list-group-item"><input type="text" class="form-control first-name" placeholder="First Name"><input type="text" class="form-control last-name" placeholder="Last Name"></li>
+					  <li class="list-group-item"><input type="text" class="form-control" placeholder="Email Address"></li>
+					  <li class="list-group-item"><input type="text" class="form-control" placeholder="Postal Code"></li>
+					</ul>
+					<button class="btn btn-lg">Sign up to cook</button>
+				</div> 
+			</div>
+		</div>
+		<div class="col-sm-12 content-container col-sm-12">
+			<div class="col-sm-6 food-content-container">
+				<h1 class="food-content-title"> Why should you try food here ...</h1>
+				<div class="panel panel-default">
+					<div class="content-card-image-container">
+						<img src="/img/pic1.png" class="img-responsive">
+					</div>
+					<div class="content-card-info-container">
+						<h4>Neque porro quisquam</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus enim vitae nulla consequat tincidunt. Morbi scelerisque turpis arcu, in interdum sem bibendum facilisis. Maecenas ut sem lacus. Aliquam erat volutpat. Aenean tempor lacus sed nibh condimentum ultricies. Etiam finibus lorem et est gravida scelerisque vel pharetra tortor. Nulla id congue orci. Nam in hendrerit erat. Aenean pretium odio sollicitudin eros semper, vitae aliquam nisi interdum. Vestibulum eget leo est. Donec maximus dui quis arcu maximus iaculis.</p>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="content-card-image-container">
+						<img src="/img/pic2.png" class="img-responsive">
+					</div>
+					<div class="content-card-info-container">
+						<h4>Neque porro quisquam</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus enim vitae nulla consequat tincidunt. Morbi scelerisque turpis arcu, in interdum sem bibendum facilisis. Maecenas ut sem lacus. Aliquam erat volutpat. Aenean tempor lacus sed nibh condimentum ultricies. Etiam finibus lorem et est gravida scelerisque vel pharetra tortor. Nulla id congue orci. Nam in hendrerit erat. Aenean pretium odio sollicitudin eros semper, vitae aliquam nisi interdum. Vestibulum eget leo est. Donec maximus dui quis arcu maximus iaculis.</p>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="content-card-image-container">
+						<img src="/img/pic1.png" class="img-responsive">
+					</div>
+					<div class="content-card-info-container">
+						<h4>Neque porro quisquam</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus enim vitae nulla consequat tincidunt. Morbi scelerisque turpis arcu, in interdum sem bibendum facilisis. Maecenas ut sem lacus. Aliquam erat volutpat. Aenean tempor lacus sed nibh condimentum ultricies. Etiam finibus lorem et est gravida scelerisque vel pharetra tortor. Nulla id congue orci. Nam in hendrerit erat. Aenean pretium odio sollicitudin eros semper, vitae aliquam nisi interdum. Vestibulum eget leo est. Donec maximus dui quis arcu maximus iaculis.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
